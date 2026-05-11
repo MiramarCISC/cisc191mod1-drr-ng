@@ -18,34 +18,61 @@ public class IntArrayToolkit {
      */
     public static int sum(int[] a) {
         // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
+        if (a == null) {
+            throw new IllegalArgumentException("this is null");
+        };
+        int total = 0;
+        for (int i : a) {
+            total += i;
+        };
+        return total;
     }
 
-    /**
-     * Returns the maximum value in the array.
-     * @throws IllegalArgumentException if a is null or empty
-     */
-    public static int max(int[] a) {
-        // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
-    }
+        /**
+         * Returns the maximum value in the array.
+         * @throws IllegalArgumentException if a is null or empty
+         */
+        public static int max ( int[] a){
+            if (a == null || a.length == 0) {
+                throw new IllegalArgumentException("Will not work");
+            }
+            int max = a[0];
+            for (int i = 1; i < a.length; i++) {
+                if (a[i] > max) {
+                    max = a[i];
+                }
+                // TODO: implement
+                return max;
+            };
+            return max;
+        }
 
-    /**
-     * Returns the index of the first occurrence of target, or -1 if not found.
-     * @throws IllegalArgumentException if a is null
-     */
-    public static int indexOf(int[] a, int target) {
-        // TODO: implement
-        throw new UnsupportedOperationException("Not implemented yet");
-    }
-
-    /**
-     * Returns a NEW array containing the same values as a, sorted ascending.
-     * Must not modify the original array.
-     * @throws IllegalArgumentException if a is null
-     */
-    public static int[] copySortedAscending(int[] a) {
-        // TODO: implement (hint: defensive copy + Arrays.sort)
-        throw new UnsupportedOperationException("Not implemented yet");
-    }
-}
+            /**
+             * Returns the index of the first occurrence of target, or -1 if not found.
+             * @throws IllegalArgumentException if a is null
+             */
+            public static int indexOf ( int[] a, int target){
+                if (a == null) {
+                    throw new IllegalArgumentException("empty");
+                }
+                for (int i = 0; i < a.length; i++) {
+                    if (a[i] == target) {
+                        return i;
+                    }
+                }
+                return -1;
+            }
+            /**
+             * Returns a NEW array containing the same values as a, sorted ascending.
+             * Must not modify the original array.
+             * @throws IllegalArgumentException if a is null
+             */
+            public static int[] copySortedAscending ( int[] a){// TODO: implement (hint: defensive copy + Arrays.sort)
+                if (a == null) {
+                    throw new IllegalArgumentException("failed");
+                }
+                int[] dupe = Arrays.copyOf(a, a.length);
+                Arrays.sort(dupe);
+                return dupe;
+            }
+        } ;
